@@ -30,7 +30,7 @@ def extract_e_mini_data():
                         next(f_in) # Skip header in subsequent files
 
                     for line in f_in:
-                        if SEARCH_TERM in line:
+                        if SEARCH_TERM in line and "MICRO" not in line:
                             f_out.write(line)
                 except StopIteration:
                     print(f"Warning: {filename} is empty or has only a header.")
